@@ -11,6 +11,11 @@ h1{
     color: #444;
 }
 
+
+a:link, a:visited, a:hover, a:active{
+    color: #444;
+}
+
 button{
     background-color: Transparent;
     outline:none;
