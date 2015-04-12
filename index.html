@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <title>chill color picker</title>
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="icon" type="image/png" href="favicon.png">
+
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body>
+        <div class="center">
+            <br><br><br><br>
+            <p id="hex-code"></p>
+            <button class="btn" id="another">
+                another, plz
+            </button>
+            <br><br><br>
+            <p>randomly generated ~chill~ colors</p>
+            <p><small>by Cathy Deng, a fan of the quiet places on the color spectrum</small></p>
+        </div>
+
+    </body>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script src="js/jquery.animate-color-min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            new_color = randomColor();
+            document.body.style.backgroundColor= new_color;
+            $('#hex-code').text(new_color)
+
+            $('#another').on('click', function(e){
+                new_color = randomColor();
+                $('body').animate({backgroundColor: new_color}, 1000)
+
+                $('#hex-code')
+                    .animate({ marginLeft: '-=1500'}, 400)
+                    .animate({ marginLeft: '+=3000'}, 0)
+                    .delay(200)
+                    .animate({ marginLeft: '-=1500'}, 400);
+                window.setTimeout(function () {
+                    $("#hex-code").text(new_color);
+                    }, 500);
+
+                $("button")
+                    .animate({ 
+                        'padding-left' : '15px',
+                        'padding-right' : '15px'
+                        }, 500)
+                    .animate({ 
+                        'padding-left' : '12px',
+                        'padding-right' : '12px'
+                        }, 500);
+            })
+        })
+
+        function randomColor() {
+            var rand1=255-Math.floor(Math.random()*50)
+            var rand2=255-Math.floor(Math.random()*50)
+            var rand3=255-Math.floor(Math.random()*50)
+            var color_hex = "#" + hex(rand1) + hex(rand2) + hex(rand3);
+            return color_hex
+        }
+        function hex(c) {
+            var hex = c.toString(16);
+            return hex.length == 1 ? "0" + hex : hex;
+        }
+
+    </script>
+</html>
