@@ -27,6 +27,8 @@ button{
     font-family: 'Source Sans Pro', sans-serif;
     padding: 12px;
     margin-bottom: 30px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
 }
 
 #hex-code{
